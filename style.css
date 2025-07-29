@@ -1,0 +1,71 @@
+/* Custom font for better aesthetics */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d0d1a; /* Very dark background for professional look */
+    color: #e2e8f0; /* Light text */
+}
+/* Smooth scroll for navigation */
+html {
+    scroll-behavior: smooth;
+}
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a2e; /* Darker track */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #3a3a5a; /* Grayish purple thumb */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #5a5a8a; /* Lighter purple on hover */
+}
+
+/* Custom styles for the glassy/blurred navigation bar and cards */
+.glassy-nav {
+    background-color: rgba(26, 26, 46, 0.7); /* Slightly transparent dark purple */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 9999px; /* Fully rounded */
+    border: 1px solid rgba(100, 100, 150, 0.2); /* Subtle border */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.glassy-card {
+    background-color: rgba(26, 26, 46, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem; /* rounded-xl */
+    border: 1px solid rgba(100, 100, 150, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.text-gradient {
+    background: linear-gradient(to right, #6366f1, #a855f7); /* Purple to Indigo */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Custom SVG icons for skills - to match the video's style */
+.icon-web-dev {
+    color: #818cf8; /* Indigo-400 */
+}
+.icon-data-science {
+    color: #38bdf8; /* Sky-400 */
+}
+/* Specific colors for skill icons */
+.icon-html { color: #e34c26; } /* Orange */
+.icon-css { color: #264de4; } /* Blue */
+.icon-js { color: #f0db4f; } /* Yellow */
+.icon-php { color: #777bb4; } /* Purple */
+.icon-c { color: #00599c; } /* Dark Blue */
+.icon-python { color: #306998; } /* Medium Blue */
+.icon-git { color: #f1502f; } /* Red-orange */
+.icon-github { color: #c9d1d9; } /* Light gray */
+.icon-vscode { color: #007acc; } /* Azure */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
