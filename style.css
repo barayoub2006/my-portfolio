@@ -25,19 +25,21 @@ html {
 }
 
 /* Custom styles for the glassy/blurred navigation bar and cards */
+/* تصميم شفاف مع تأثير التمرير */
+/* تصميم بسيط وغير زجاجي */
 .glassy-nav {
-    background-color: rgba(26, 26, 46, 0.7); /* Slightly transparent dark purple */
-    backdrop-filter: blur(10px); /* Blur effect */
-    border-radius: 9999px; /* Fully rounded */
-    border: 1px solid rgba(100, 100, 150, 0.2); /* Subtle border */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a2e;
+    backdrop-filter: none;
+    border-radius: 9999px;
+    border: 1px solid #3a3a5a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .glassy-card {
-    background-color: rgba(26, 26, 46, 0.7);
-    backdrop-filter: blur(5px);
-    border-radius: 1rem; /* rounded-xl */
-    border: 1px solid rgba(100, 100, 150, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a2e;
+    backdrop-filter: none;
+    border-radius: 1rem;
+    border: 1px solid #3a3a5a;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .text-gradient {
     background: linear-gradient(to right, #6366f1, #a855f7); /* Purple to Indigo */
@@ -69,3 +71,4 @@ html {
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
 }
+
