@@ -1,34 +1,52 @@
-// JavaScript for mobile navigation toggle
-document.getElementById('nav-toggle').onclick = function () {
-    document.getElementById('nav-content').classList.toggle('hidden');
-}
 
-// Close mobile nav when a link is clicked
-document.querySelectorAll('#nav-content a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (!document.getElementById('nav-content').classList.contains('hidden')) {
-            document.getElementById('nav-content').classList.add('hidden');
+
+// Functionality to show projects in batches
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const hideBtn = document.getElementById('hide-btn');
+    const projectsToShow = 3; // عدد المشاريع التي ستظهر في البداية وفي كل مرة
+    let shownCount = 0;
+
+    // إخفاء كل المشاريع في البداية
+    projectCards.forEach(card => card.classList.add('hidden'));
+
+    // دالة لإظهار الدفعة التالية من المشاريع
+    const showNextProjects = () => {
+        const remainingProjects = Array.from(projectCards).filter(card => card.classList.contains('hidden'));
+        for (let i = 0; i < projectsToShow && i < remainingProjects.length; i++) {
+            remainingProjects[i].classList.remove('hidden');
         }
-    });
+        shownCount += projectsToShow;
+        // إخفاء زر "عرض المزيد" إذا لم تعد هناك مشاريع أخرى
+        if (showMoreBtn) {
+            if (shownCount >= projectCards.length) {
+                showMoreBtn.classList.add('hidden');
+                hideBtn.classList.remove('hidden');
+            }
+        }
+    };
+
+    // دالة لإخفاء كل المشاريع باستثناء أول 3
+    const hideProjects = () => {
+        projectCards.forEach((card, index) => {
+            if (index >= projectsToShow) {
+                card.classList.add('hidden');
+            }
+        });
+        shownCount = projectsToShow;
+        showMoreBtn.classList.remove('hidden');
+        hideBtn.classList.add('hidden');
+    };
+
+    if (showMoreBtn) {
+        // إظهار الدفعة الأولى عند تحميل الصفحة
+        showNextProjects();
+        // إضافة حدث عند الضغط على الزر
+        showMoreBtn.addEventListener('click', showNextProjects);
+    }
+    
+    if (hideBtn) {
+        hideBtn.addEventListener('click', hideProjects);
+    }
 });
-
-// Function to copy text to clipboard
-function copyToClipboard(text) {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    // Optional: Provide visual feedback to the user
-    alert('تم نسخ النص إلى الحافظة!'); // Using alert for simplicity, consider a custom modal
-}
-
-// Display current time in footer
-function updateCurrentTime() {
-    const now = new Date();
-    const options = { hour: '2-digit', minute: '2-digit', hour12: false };
-    document.getElementById('current-time').textContent = now.toLocaleTimeString('ar-DZ', options);
-}
-updateCurrentTime();
-setInterval(updateCurrentTime, 60000); // Update every minute
