@@ -1,7 +1,6 @@
-
-
 // Functionality to show projects in batches
 document.addEventListener('DOMContentLoaded', () => {
+    // === Project Show/Hide Functionality ===
     const projectCards = document.querySelectorAll('.project-card');
     const showMoreBtn = document.getElementById('show-more-btn');
     const hideBtn = document.getElementById('hide-btn');
@@ -49,4 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hideBtn) {
         hideBtn.addEventListener('click', hideProjects);
     }
+
+    // === Dark/Light Mode Toggle Functionality ===
+    const chk = document.getElementById('chk');
+
+    chk.addEventListener('change', () => {
+        document.body.classList.toggle('dark');
+    });
+
+    // === Mobile Menu Toggle Functionality ===
+    const navToggle = document.getElementById('nav-toggle');
+    const navContent = document.getElementById('nav-content');
+
+    if (navToggle && navContent) {
+        navToggle.addEventListener('click', () => {
+            navContent.classList.toggle('hidden');
+        });
+    }
 });
+
